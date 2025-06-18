@@ -11,5 +11,26 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
       <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    </ItemGroup>
 
+    <PropertyGroup>
+        <PackageId>SteamApis.Net</PackageId>
+        <Version>1.0.2</Version>
+        <Authors>Tangerine</Authors>
+        <Description>An unofficial .NET wrapper for SteamApis.com</Description>
+        <PackageTags>steam;steamapis;games;inventory</PackageTags>
+        <PackageProjectUrl>https://github.com/ItsTangerine/SteamApis.Net</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ItsTangerine/SteamApis.Net</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <License>MIT</License>
+
+        <IncludeSource>true</IncludeSource>
+        <IncludeSymbols>true</IncludeSymbols>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
 </Project>

@@ -1,4 +1,6 @@
 # SteamApis.Net
+[![NuGet](https://img.shields.io/nuget/v/SteamApis.Net.svg)](https://www.nuget.org/packages/SteamApis.Net/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Unofficial https://steamapis.com .NET library, supporting .NET 6.0+
 

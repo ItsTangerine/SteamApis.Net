@@ -5,6 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>12</LangVersion>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,7 +20,7 @@
 
     <PropertyGroup>
         <PackageId>SteamApis.Net</PackageId>
-        <Version>1.0.2</Version>
+        <Version>1.0.4</Version>
         <Authors>Tangerine</Authors>
         <Description>An unofficial .NET wrapper for SteamApis.com</Description>
         <PackageTags>steam;steamapis;games;inventory</PackageTags>
@@ -26,6 +28,7 @@
         <RepositoryUrl>https://github.com/ItsTangerine/SteamApis.Net</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <License>MIT</License>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <IncludeSource>true</IncludeSource>
         <IncludeSymbols>true</IncludeSymbols>
@@ -33,4 +36,8 @@
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="../../README.md" Pack="true" PackagePath="" Link="README.md" />
+    </ItemGroup>
 </Project>

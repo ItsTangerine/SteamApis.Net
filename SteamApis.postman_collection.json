@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "fa1084b9-830e-4d16-bef1-7a8d4634b064",
+		"name": "SteamApis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37047661"
+	},
+	"item": [
+		{
+			"name": "Steam - Inventory",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/steam/inventory/{{SteamId}}/{{AppId}}/{{ContextId}}?api_key={{vault:ApisToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"steam",
+						"inventory",
+						"{{SteamId}}",
+						"{{AppId}}",
+						"{{ContextId}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{vault:ApisToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Steam - Profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/steam/profile/{{SteamId}}?api_key={{vault:ApisToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"steam",
+						"profile",
+						"{{SteamId}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{vault:ApisToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Market - Stats",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/market/stats?api_key={{vault:ApisToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"market",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{vault:ApisToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Market - App",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/market/app/{{AppId}}?api_key={{vault:ApisToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"market",
+						"app",
+						"{{AppId}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{vault:ApisToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Market - Apps",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/market/apps?api_key={{vault:ApisToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"market",
+						"apps"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{vault:ApisToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Market - Item",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/market/item/{{AppId}}/{{market_hash_name}}?api_key={{vault:ApisToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"market",
+						"item",
+						"{{AppId}}",
+						"{{market_hash_name}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{vault:ApisToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Market - Items",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/market/items/{{AppId}}?api_key={{vault:ApisToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"market",
+						"items",
+						"{{AppId}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{vault:ApisToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Market - Cards",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/market/items/cards?api_key={{vault:ApisToken}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"market",
+						"items",
+						"cards"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{vault:ApisToken}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Images - Item",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/image/item/{{AppId}}/{{market_hash_name}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"image",
+						"item",
+						"{{AppId}}",
+						"{{market_hash_name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Images - Items",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.steamapis.com/image/items/{{AppId}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"steamapis",
+						"com"
+					],
+					"path": [
+						"image",
+						"items",
+						"{{AppId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

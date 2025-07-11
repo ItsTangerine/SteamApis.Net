@@ -20,7 +20,7 @@
 
     <PropertyGroup>
         <PackageId>SteamApis.Net</PackageId>
-        <Version>1.0.5</Version>
+        <Version>1.0.7</Version>
         <Authors>Tangerine</Authors>
         <Description>An unofficial .NET wrapper for SteamApis.com</Description>
         <PackageTags>steam;steamapis;games;inventory</PackageTags>
@@ -30,6 +30,8 @@
         <License>MIT</License>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.png</PackageIcon>
+        <IncludePackageIconInPackage>true</IncludePackageIconInPackage>
 
         <IncludeSource>true</IncludeSource>
         <IncludeSymbols>true</IncludeSymbols>
@@ -40,5 +42,8 @@
     
     <ItemGroup>
         <None Include="../../README.md" Pack="true" PackagePath="" Link="README.md" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="../../icon.png" Pack="true" PackagePath="" />
     </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using SteamApis.Net.Json;
 
 namespace SteamApis.Net.Entities.Response.Steam.Profile;
 
@@ -29,7 +30,8 @@ public record AppContext
     public int LoadFailed { get; init; }
 
     [JsonPropertyName("store_vetted")]
-    public string StoreVetted { get; init; } = null!;
+    [JsonConverter(typeof(StringBooleanConverter))]
+    public bool? StoreVetted { get; init; }
 
     [JsonPropertyName("owner_only")]
     public bool OwnerOnly { get; init; }

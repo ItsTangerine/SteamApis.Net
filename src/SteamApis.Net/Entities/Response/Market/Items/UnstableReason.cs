@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 
 namespace SteamApis.Net.Entities.Response.Market.Items;
 
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum UnstableReason
 {
     [EnumMember(Value = "NONE")]

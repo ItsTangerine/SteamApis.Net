@@ -17,5 +17,5 @@ public record SoldInfo
     public int Last90d { get; init; }
 
     [JsonPropertyName("avg_daily_volume")]
-    public int AvgDailyVolume { get; init; }
+    public int? AvgDailyVolume { get; init; }
 }

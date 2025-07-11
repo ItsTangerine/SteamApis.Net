@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 
 namespace SteamApis.Net.Entities.Response.Steam.Profile;
 
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum OnlineState
 {
     [EnumMember(Value = "offline")]

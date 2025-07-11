@@ -1,9 +1,7 @@
 ﻿using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
 
 namespace SteamApis.Net.Entities.Response.Market.Items;
 
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum CompactValue
 {
     [EnumMember(Value = "latest")]

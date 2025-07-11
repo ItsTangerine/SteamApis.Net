@@ -10,6 +10,7 @@ public static class ServiceCollectionExtensions
     {
         var options = new SteamApisOptions();
         configureOptions(options);
+        ArgumentNullException.ThrowIfNull(options.ApiKey, nameof(options.ApiKey));
         
         services.AddSingleton(options);
         

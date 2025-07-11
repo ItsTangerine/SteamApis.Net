@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using SteamApis.Net.Json;
 
 namespace SteamApis.Net.Entities.Response.Steam.Profile;
 

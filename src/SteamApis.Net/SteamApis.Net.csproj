@@ -20,7 +20,7 @@
 
     <PropertyGroup>
         <PackageId>SteamApis.Net</PackageId>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
         <Authors>Tangerine</Authors>
         <Description>An unofficial .NET wrapper for SteamApis.com</Description>
         <PackageTags>steam;steamapis;games;inventory</PackageTags>
@@ -28,6 +28,7 @@
         <RepositoryUrl>https://github.com/ItsTangerine/SteamApis.Net</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <License>MIT</License>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <IncludeSource>true</IncludeSource>

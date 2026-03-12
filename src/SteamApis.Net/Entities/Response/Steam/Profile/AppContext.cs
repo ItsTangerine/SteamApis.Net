@@ -35,7 +35,15 @@ public record AppContext
 
     [JsonPropertyName("owner_only")]
     public bool OwnerOnly { get; init; }
-
+    
+    [JsonPropertyName("inplace_listing")]
+    [JsonConverter(typeof(StringBooleanConverter))]
+    public bool? InPlaceListing { get; init; }
+    
+    [JsonPropertyName("secure_trades")]
+    [JsonConverter(typeof(StringBooleanConverter))]
+    public bool? SecureTrades { get; init; }
+    
     [JsonPropertyName("rgContexts")]
     public Dictionary<string, ContextDetail> RgContexts { get; init; } = [];
 }

@@ -10,6 +10,7 @@ public class StringBooleanConverter : JsonConverter<bool>
         return reader.TokenType switch
         {
             JsonTokenType.String => reader.GetString() == "1",
+            JsonTokenType.Number => reader.GetInt32() == 1,
             JsonTokenType.True => true,
             JsonTokenType.False => false,
             _ => throw new JsonException()

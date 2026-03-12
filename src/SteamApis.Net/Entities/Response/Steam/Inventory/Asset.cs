@@ -8,7 +8,8 @@ public record Asset
     public int AppId { get; init; }
 
     [JsonPropertyName("contextid")]
-    public string ContextId { get; init; } = null!;
+    [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
+    public int ContextId { get; init; }
 
     [JsonPropertyName("assetid")]
     public string AssetId { get; init; } = null!;

@@ -51,4 +51,16 @@ public record SteamSummaryResponse
 
     [JsonPropertyName("badges")]
     public List<SteamBadge> Badges { get; init; } = [];
+    
+    [JsonPropertyName("player_xp")]
+    public int PlayerXp { get; init; }
+    
+    [JsonPropertyName("player_level")]
+    public int PlayerLevel { get; init; }
+    
+    [JsonPropertyName("player_xp_needed_to_level_up")]
+    public int PlayerXpNeededToLevelUp { get; init; }
+    
+    [JsonPropertyName("player_player_xp_needed_current_level")]
+    public int PlayerXpNeededCurrentLevel { get; init; }
 }

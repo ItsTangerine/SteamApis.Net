@@ -42,7 +42,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<InventoryResponse> GetUserSteamInventory(string steamId, int appId, int contextId, bool legacy = false, CancellationToken cancellationToken = default)
+    public Task<ApiResult<InventoryResponse>> GetUserSteamInventory(string steamId, int appId, int contextId, bool legacy = false, CancellationToken cancellationToken = default)
     {
         var url = $"steam/inventory/{steamId}/{appId}/{contextId}?api_key={_options.ApiKey}";
 
@@ -58,7 +58,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<SteamProfileResponse> GetUserSteamProfile(string steamId, CancellationToken cancellationToken = default)
+    public Task<ApiResult<SteamProfileResponse>> GetUserSteamProfile(string steamId, CancellationToken cancellationToken = default)
     {
         var url = $"steam/profile/{steamId}?api_key={_options.ApiKey}";
         
@@ -69,7 +69,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<SteamVanityResponse> GetUserSteamVanity(string vanityName, CancellationToken cancellationToken = default)
+    public Task<ApiResult<SteamVanityResponse>> GetUserSteamVanity(string vanityName, CancellationToken cancellationToken = default)
     {
         var url = $"steam/profile/vanity/{vanityName}?api_key={_options.ApiKey}";
         
@@ -80,7 +80,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<SteamSummaryResponse> GetUserSteamSummary(string steamId, CancellationToken cancellationToken = default)
+    public Task<ApiResult<SteamSummaryResponse>> GetUserSteamSummary(string steamId, CancellationToken cancellationToken = default)
     {
         var url = $"steam/profile/{steamId}/summary?api_key={_options.ApiKey}";
         
@@ -91,7 +91,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<SteamGamesResponse> GetUserSteamGames(string steamId, CancellationToken cancellationToken = default)
+    public Task<ApiResult<SteamGamesResponse>> GetUserSteamGames(string steamId, CancellationToken cancellationToken = default)
     {
         var url = $"steam/profile/{steamId}/games?api_key={_options.ApiKey}";
         
@@ -102,7 +102,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<GlobalStatsResponse> GetMarketStats(CancellationToken cancellationToken = default)
+    public Task<ApiResult<GlobalStatsResponse>> GetMarketStats(CancellationToken cancellationToken = default)
     {
         var url = $"market/stats?api_key={_options.ApiKey}";
         
@@ -113,7 +113,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<SteamAppDetailsResponse> GetSingleApp(int appId, CancellationToken cancellationToken = default)
+    public Task<ApiResult<SteamAppDetailsResponse>> GetSingleApp(int appId, CancellationToken cancellationToken = default)
     {
         var url = $"market/app/{appId}?api_key={_options.ApiKey}";
         
@@ -124,7 +124,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<SteamAppDetailsShortResponse[]> GetAllApps(CancellationToken cancellationToken = default)
+    public Task<ApiResult<SteamAppDetailsShortResponse[]>> GetAllApps(CancellationToken cancellationToken = default)
     {
         var url = $"market/apps?api_key={_options.ApiKey}";
         
@@ -135,7 +135,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<SteamMarketItemResponse> GetSingleItem(int appId, string marketHashName, int medianHistoryDays = 15, CancellationToken cancellationToken = default)
+    public Task<ApiResult<SteamMarketItemResponse>> GetSingleItem(int appId, string marketHashName, int medianHistoryDays = 15, CancellationToken cancellationToken = default)
     {
         var url = $"market/item/{appId}/{marketHashName}?api_key={_options.ApiKey}";
 
@@ -151,7 +151,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<AppItemsResponse> GetAllItems(int appId, CancellationToken cancellationToken = default)
+    public Task<ApiResult<AppItemsResponse>> GetAllItems(int appId, CancellationToken cancellationToken = default)
     {
         var url = $"market/items/{appId}?api_key={_options.ApiKey}";
         
@@ -162,7 +162,7 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<Dictionary<string, double>> GetAllItemsCompact(int appId, CompactValue compactValue = CompactValue.Safe, CancellationToken cancellationToken = default)
+    public Task<ApiResult<Dictionary<string, double>>> GetAllItemsCompact(int appId, CompactValue compactValue = CompactValue.Safe, CancellationToken cancellationToken = default)
     {
         var url = $"market/items/{appId}?api_key={_options.ApiKey}&format=compact";
 
@@ -178,14 +178,14 @@ public class SteamApisClient : ISteamApisClient
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="ArgumentException">API key is not provided.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<SteamCardSetResponse> GetAllCards(CancellationToken cancellationToken = default)
+    public Task<ApiResult<SteamCardSetResponse>> GetAllCards(CancellationToken cancellationToken = default)
     {
         var url = $"market/items/cards?api_key={_options.ApiKey}&format=compact";
         
         return GetAsync<SteamCardSetResponse>(url, cancellationToken);
     }
 
-    public Task<MarketDescriptionsResponse> GetMarketDescriptions(int appId, int page = 1, CancellationToken cancellationToken = default)
+    public Task<ApiResult<MarketDescriptionsResponse>> GetMarketDescriptions(int appId, int page = 1, CancellationToken cancellationToken = default)
     {
         var url = $"market/items/{appId}/descriptions?api_key={_options.ApiKey}";
         
@@ -195,14 +195,14 @@ public class SteamApisClient : ISteamApisClient
         return GetAsync<MarketDescriptionsResponse>(url, cancellationToken);
     }
 
-    public Task<MarketHistogramData[]> GetMarketHistograms(int appId, CancellationToken cancellationToken = default)
+    public Task<ApiResult<MarketHistogramData[]>> GetMarketHistograms(int appId, CancellationToken cancellationToken = default)
     {
         var url = $"market/items/{appId}/histograms?api_key={_options.ApiKey}";
         
         return GetAsync<MarketHistogramData[]>(url, cancellationToken);
     }
 
-    public Task<MarketAssetInfosResponse> GetMarketAssetInfos(int appId, string? cursor = null, CancellationToken cancellationToken = default)
+    public Task<ApiResult<MarketAssetInfosResponse>> GetMarketAssetInfos(int appId, string? cursor = null, CancellationToken cancellationToken = default)
     {
         var url = $"market/items/{appId}/assetinfos?api_key={_options.ApiKey}";
         
@@ -215,24 +215,29 @@ public class SteamApisClient : ISteamApisClient
     /// <inheritdoc cref="ISteamApisClient.GetImage"/>
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public async Task<byte[]> GetImage(int appId, string marketHashName, CancellationToken cancellationToken = default)
+    public async Task<ApiResult<byte[]>> GetImage(int appId, string marketHashName, CancellationToken cancellationToken = default)
     {
         var url = $"image/item/{appId}/{marketHashName}";
         
         var response = await _httpClient.GetAsync(url, cancellationToken);
-
-        response.EnsureSuccessStatusCode();
         var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
         
-        await HandleErrorResponse(response, stream, cancellationToken);
+        if (!response.IsSuccessStatusCode)
+        {
+            var error = await ParseErrorResponse(stream, cancellationToken);
+            return ApiResult<byte[]>.Failure(
+                error?.Error ?? $"HTTP {(int)response.StatusCode}",
+                response.StatusCode);
+        }
 
-        return await response.Content.ReadAsByteArrayAsync(cancellationToken);
+        var imageBytes = await response.Content.ReadAsByteArrayAsync(cancellationToken);
+        return ApiResult<byte[]>.Success(imageBytes, response.StatusCode);
     }
 
     /// <inheritdoc cref="ISteamApisClient.GetImages"/>
     /// <exception cref="HttpRequestException">The HTTP response is unsuccessful.</exception>
     /// <exception cref="InvalidOperationException">Failed to deserialize response.</exception>
-    public Task<Dictionary<string, string>> GetImages(int appId, CancellationToken cancellationToken = default)
+    public Task<ApiResult<Dictionary<string, string>>> GetImages(int appId, CancellationToken cancellationToken = default)
     {
         var url = $"image/items/{appId}";
         
@@ -250,34 +255,45 @@ public class SteamApisClient : ISteamApisClient
         return new SteamApisClient(httpClient, options);
     }
 
-    private async Task<T> GetAsync<T>(string url, CancellationToken cancellationToken)
+    private async Task<ApiResult<T>> GetAsync<T>(string url, CancellationToken cancellationToken)
     {
         var response = await _httpClient.GetAsync(url, cancellationToken);
         var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
-        
-        await HandleErrorResponse(response, stream, cancellationToken);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error = await ParseErrorResponse(stream, cancellationToken);
+            return ApiResult<T>.Failure(
+                error?.Error ?? $"HTTP {(int)response.StatusCode}",
+                response.StatusCode);
+        }
+
         var result = await DeserializeResponse<T>(stream, cancellationToken);
-        
-        return result ?? throw new InvalidOperationException("Failed to deserialize response.");
+
+        if (result is null)
+        {
+            return ApiResult<T>.Failure(
+                "Failed to deserialize response.",
+                response.StatusCode);
+        }
+
+        return ApiResult<T>.Success(result, response.StatusCode);
     }
     
-    private async Task HandleErrorResponse(HttpResponseMessage response, Stream stream, CancellationToken cancellationToken)
+    private async Task<ErrorResponse?> ParseErrorResponse(Stream stream, CancellationToken cancellationToken)
     {
-        if (response.IsSuccessStatusCode)
-            return;
-        
-        var errorResult = await DeserializeResponse<ErrorResponse>(stream, cancellationToken);
-        if (string.IsNullOrEmpty(errorResult?.Error) == false)
+        try
         {
-            throw new HttpRequestException(errorResult.Error);
+            return await DeserializeResponse<ErrorResponse>(stream, cancellationToken);
         }
-    
-        response.EnsureSuccessStatusCode();
+        catch (JsonException e)
+        {
+            return new ErrorResponse(e.Message);
+        }
     }
 
     private async Task<T?> DeserializeResponse<T>(Stream stream, CancellationToken cancellationToken)
     {
-        stream.Position = 0; // Reset stream position for reading
         return await JsonSerializer.DeserializeAsync<T>(stream, _jsonOptions, cancellationToken);
     }
 

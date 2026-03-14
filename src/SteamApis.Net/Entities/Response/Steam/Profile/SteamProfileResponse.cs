@@ -39,7 +39,7 @@ public record SteamProfileResponse
     public string? CustomUrl { get; init; }
 
     [JsonPropertyName("memberSince")]
-    public DateTime MemberSince { get; init; }
+    public DateTime? MemberSince { get; init; }
 
     [JsonPropertyName("location")]
     public string? Location { get; init; }
@@ -48,14 +48,14 @@ public record SteamProfileResponse
     public string? RealName { get; init; }
 
     [JsonPropertyName("summary")]
-    public string Summary { get; init; } = null!;
+    public string? Summary { get; init; }
 
     [JsonPropertyName("groups")]
-    public List<SteamId> Groups { get; init; } = [];
+    public List<SteamId>? Groups { get; init; }
 
     [JsonPropertyName("primaryGroup")]
-    public SteamId PrimaryGroup { get; init; } = null!;
+    public SteamId? PrimaryGroup { get; init; } = null!;
 
     [JsonPropertyName("contexts")]
-    public Dictionary<string, AppContext> Contexts { get; init; } = [];
+    public Dictionary<string, AppContext>? Contexts { get; init; }
 }

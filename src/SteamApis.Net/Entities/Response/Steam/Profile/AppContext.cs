@@ -45,5 +45,6 @@ public record AppContext
     public bool? SecureTrades { get; init; }
     
     [JsonPropertyName("rgContexts")]
+    [JsonConverter(typeof(FlexibleDictionaryConverter<ContextDetail>))]
     public Dictionary<string, ContextDetail> RgContexts { get; init; } = [];
 }

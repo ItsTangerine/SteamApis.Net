@@ -11,13 +11,14 @@ namespace SteamApis.Net.Clients;
 /// </summary>
 public sealed class SteamApiClient
 {
-    public SteamApiClient(HttpClient httpClient)
+    public SteamApiClient(HttpClient httpClient, string apiKey)
     {
         var connection = new ApiConnection(httpClient);
         Account = new AccountApi(connection);
         Users = new SteamUsersApi(connection);
         Apps = new SteamAppsApi(connection);
         Items = new SteamItemsApi(connection);
+        Legacy = new LegacyApi(connection, apiKey);
     }
 
     /// <summary>Account details endpoints.</summary>
@@ -31,4 +32,7 @@ public sealed class SteamApiClient
 
     /// <summary>Tracked market items, histograms, price history.</summary>
     public SteamItemsApi Items { get; }
+    
+    /// <summary>Legacy API endpoints.</summary>
+    public LegacyApi Legacy { get; }
 }

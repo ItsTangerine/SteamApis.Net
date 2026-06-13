@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
+using SteamApis.Net.Json;
 using SteamApis.Net.Models.Response;
 using SteamApis.Net.Models.SteamApis;
 
@@ -15,6 +16,7 @@ public sealed class ApiConnection(HttpClient httpClient)
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
         PropertyNameCaseInsensitive = true,
+        Converters = { new EnumMemberConverterFactory() },
     };
 
     public async Task<ApiResult<T>> GetResultAsync<T>(string url, CancellationToken ct = default) where T : class
@@ -74,6 +76,26 @@ public sealed class ApiConnection(HttpClient httpClient)
         catch (Exception ex) when (ex is not OperationCanceledException)
         {
             return ApiResult<T>.Fail(0, "NetworkError", ex.Message);
+        }
+    }
+    
+    public async Task<ApiResult<byte[]>> GetBytesAsync(string url, CancellationToken ct = default)
+    {
+        try
+        {
+            using var response = await httpClient.GetAsync(url, ct);
+            if (!response.IsSuccessStatusCode)
+                return await ReadMarketErrorAsync<byte[]>(response, ct);
+ 
+            var value = await response.Content.ReadAsByteArrayAsync(ct);
+            if (value.Length == 0)
+                return ApiResult<byte[]>.Fail(200, "EmptyResult", $"No payload at {url}");
+ 
+            return ApiResult<byte[]>.Ok(value);
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            return ApiResult<byte[]>.Fail(0, "NetworkError", ex.Message);
         }
     }
  

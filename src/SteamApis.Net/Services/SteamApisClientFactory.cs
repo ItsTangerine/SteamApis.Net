@@ -15,7 +15,7 @@ public static class SteamApisClientFactory
         var marketHttp = CreateHttpClient(DefaultEndpoints.MarketBaseUrl, apiKey);
  
         return new SteamApisClient(
-            new SteamApiClient(steamHttp, apiKey),
+            new SteamApiClient(steamHttp),
             new MarketPlaceApiClient(marketHttp));
     }
  

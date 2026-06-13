@@ -46,7 +46,7 @@ public sealed class IntegrationFixture : IDisposable
         _steamHttp = BuildHttp(DefaultEndpoints.SteamBaseUrl,  ApiKey);
         _marketHttp = BuildHttp(DefaultEndpoints.MarketBaseUrl, ApiKey);
 
-        Steam  = new SteamApiClient(_steamHttp, ApiKey);
+        Steam  = new SteamApiClient(_steamHttp);
         MarketPlace = new MarketPlaceApiClient(_marketHttp);
     }
 

@@ -16,7 +16,7 @@
 
     <PropertyGroup>
         <PackageId>SteamApis.Net</PackageId>
-        <Version>2.0.1</Version>
+        <Version>2.0.2</Version>
         <Authors>Tangerine</Authors>
         <Description>An unofficial .NET wrapper for SteamApis.com</Description>
         <PackageTags>steam;steamapis;games;inventory</PackageTags>

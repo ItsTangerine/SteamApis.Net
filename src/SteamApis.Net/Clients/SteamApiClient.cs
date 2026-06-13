@@ -11,13 +11,20 @@ namespace SteamApis.Net.Clients;
 /// </summary>
 public sealed class SteamApiClient
 {
-    public SteamApiClient(HttpClient httpClient, string apiKey)
+    public SteamApiClient(HttpClient httpClient)
     {
         var connection = new ApiConnection(httpClient);
         Account = new AccountApi(connection);
         Users = new SteamUsersApi(connection);
         Apps = new SteamAppsApi(connection);
         Items = new SteamItemsApi(connection);
+        
+        var apiKey = httpClient.DefaultRequestHeaders.TryGetValues("x-api-key", out var values)
+            ? values.FirstOrDefault()
+            : null;
+        
+        ArgumentNullException.ThrowIfNull(apiKey);
+        
         Legacy = new LegacyApi(connection, apiKey);
     }
 

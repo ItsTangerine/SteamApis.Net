@@ -5,7 +5,7 @@ namespace SteamApis.Net.Models.Steam;
 public sealed class UserBans
 {
     [JsonPropertyName("steamID")]
-    public string SteamId { get; init; } = string.Empty;
+    public required string SteamId { get; init; }
  
     [JsonPropertyName("communityBanned")]
     public bool CommunityBanned { get; init; }
@@ -13,15 +13,15 @@ public sealed class UserBans
     [JsonPropertyName("vacBanned")]
     public bool VacBanned { get; init; }
  
-    [JsonPropertyName("numberOfVacBans")]
+    [JsonPropertyName("vacBans")]
     public int NumberOfVacBans { get; init; }
  
-    [JsonPropertyName("daysSinceLastBan")]
-    public int DaysSinceLastBan { get; init; }
- 
-    [JsonPropertyName("numberOfGameBans")]
+    [JsonPropertyName("gameBans")]
     public int NumberOfGameBans { get; init; }
- 
+    
     [JsonPropertyName("economyBan")]
     public string? EconomyBan { get; init; }
+    
+    [JsonPropertyName("daysSinceLastBan")]
+    public int DaysSinceLastBan { get; init; }
 }

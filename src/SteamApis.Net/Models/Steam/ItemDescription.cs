@@ -28,8 +28,17 @@ public sealed class ItemDescription
     [JsonPropertyName("tradable")]
     public int Tradable { get; init; }
 
-    [JsonPropertyName("actions")]
-    public IReadOnlyList<SteamAction>? Actions { get; init; }
+    [JsonPropertyName("marketable")]
+    public int Marketable { get; init; }
+
+    [JsonPropertyName("commodity")]
+    public int Commodity { get; init; }
+
+    [JsonPropertyName("market_tradable_restriction")]
+    public int MarketTradableRestriction { get; init; }
+
+    [JsonPropertyName("market_marketable_restriction")]
+    public int MarketMarketableRestriction { get; init; }
 
     [JsonPropertyName("name")]
     public required string Name { get; init; }
@@ -45,39 +54,27 @@ public sealed class ItemDescription
 
     [JsonPropertyName("market_hash_name")]
     public required string MarketHashName { get; init; }
-
+    
+    [JsonPropertyName("actions")]
+    public IReadOnlyList<SteamAction>? Actions { get; init; }
+    
     [JsonPropertyName("market_actions")]
     public IReadOnlyList<SteamAction>? MarketActions { get; init; }
-
-    [JsonPropertyName("commodity")]
-    public int Commodity { get; init; }
-
-    [JsonPropertyName("market_tradable_restriction")]
-    public int MarketTradableRestriction { get; init; }
-
-    [JsonPropertyName("market_marketable_restriction")]
-    public int MarketMarketableRestriction { get; init; }
-
-    [JsonPropertyName("marketable")]
-    public int Marketable { get; init; }
-
+    
     [JsonPropertyName("tags")]
     public IReadOnlyList<ItemTag>? Tags { get; init; }
 
     [JsonPropertyName("sealed")]
     public int Sealed { get; init; }
+    
+    [JsonPropertyName("sealed_type")]
+    public int SealedType { get; init; }
 
     [JsonPropertyName("market_bucket_group_name")]
     public required string MarketBucketGroupName { get; init; }
 
     [JsonPropertyName("market_bucket_group_id")]
     public required string MarketBucketGroupId { get; init; }
-
-    [JsonPropertyName("sealed_type")]
-    public int SealedType { get; init; }
-
-    [JsonPropertyName("market_name_inside_group")]
-    public required string MarketNameInsideGroup { get; init; }
  
     /// <summary>Builds the full CDN URL from the relative icon_url.</summary>
     public string GetIconFullUrl() => $"https://community.cloudflare.steamstatic.com/economy/image/{IconUrl}";

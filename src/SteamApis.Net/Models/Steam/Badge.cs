@@ -4,27 +4,27 @@ namespace SteamApis.Net.Models.Steam;
 
 public sealed class Badge
 {
-    [JsonPropertyName("badgeid")]
-    public int BadgeId { get; init; }
- 
+    [JsonPropertyName("id")]
+    public required int Id { get; init; }
+
     [JsonPropertyName("level")]
-    public int Level { get; init; }
- 
-    [JsonPropertyName("completion_time")]
-    public long CompletionTime { get; init; }
- 
+    public required int Level { get; init; }
+
+    [JsonPropertyName("completedTimestamp")]
+    public required long CompletedTimestamp { get; init; }
+
     [JsonPropertyName("xp")]
-    public int Xp { get; init; }
- 
+    public required int Xp { get; init; }
+
     [JsonPropertyName("scarcity")]
-    public int Scarcity { get; init; }
- 
-    [JsonPropertyName("appid")]
+    public required int Scarcity { get; init; }
+
+    [JsonPropertyName("appID")]
     public int? AppId { get; init; }
- 
-    [JsonPropertyName("communityitemid")]
+
+    [JsonPropertyName("communityItemID")]
     public string? CommunityItemId { get; init; }
- 
-    [JsonPropertyName("border_color")]
+
+    [JsonPropertyName("borderColor")]
     public int? BorderColor { get; init; }
 }

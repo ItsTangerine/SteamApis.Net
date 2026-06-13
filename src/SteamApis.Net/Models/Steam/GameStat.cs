@@ -5,7 +5,7 @@ namespace SteamApis.Net.Models.Steam;
 public sealed class GameStat
 {
     [JsonPropertyName("name")]
-    public string Name { get; init; } = default!;
+    public required string Name { get; init; }
 
     [JsonPropertyName("value")]
     public double Value { get; init; }

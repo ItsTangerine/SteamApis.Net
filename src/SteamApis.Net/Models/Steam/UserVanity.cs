@@ -5,5 +5,5 @@ namespace SteamApis.Net.Models.Steam;
 public sealed class UserVanity
 {
     [JsonPropertyName("steamID")]
-    public string SteamId { get; init; } = string.Empty;
+    public required string SteamId { get; init; }
 }

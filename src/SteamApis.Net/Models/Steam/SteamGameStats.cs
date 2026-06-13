@@ -11,8 +11,8 @@ public sealed class SteamGameStats
     public required string Game { get; init; }
 
     [JsonPropertyName("achievements")]
-    public IReadOnlyList<UnlockedAchievement> Achievements { get; init; } = [];
+    public IReadOnlyList<UnlockedAchievement>? Achievements { get; init; }
 
     [JsonPropertyName("stats")]
-    public IReadOnlyList<GameStat> Stats { get; init; } = [];
+    public IReadOnlyList<GameStat>? Stats { get; init; }
 }

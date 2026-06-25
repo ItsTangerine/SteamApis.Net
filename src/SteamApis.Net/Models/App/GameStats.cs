@@ -8,5 +8,5 @@ public sealed class GameStats
     public required IReadOnlyList<GameStatDefinition> Stats { get; init; }
 
     [JsonPropertyName("achievements")]
-    public required IReadOnlyList<GameAchievementDefinition> Achievements { get; init; }
+    public IReadOnlyList<GameAchievementDefinition>? Achievements { get; init; }
 }

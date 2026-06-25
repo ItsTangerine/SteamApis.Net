@@ -1,10 +1,11 @@
-﻿using SteamApis.Net.Models.SteamApis;
+﻿using SteamApis.Net.Models.Response;
+using SteamApis.Net.Models.SteamApis;
 
 namespace SteamApis.Net.Tests.Helpers;
 
 public static class AssertHelpers
 {
-    internal static void AssertSuccess<T>(Models.Response.ApiResult<T> result)
+    internal static void AssertSuccess<T>(ApiResult<T> result)
     {
         Assert.True(result.IsSuccess,
             $"Expected success but got: [{result.Error?.StatusCode}] {result.Error?.Code} — {result.Error?.Message}");

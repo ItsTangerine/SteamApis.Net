@@ -8,10 +8,13 @@ public sealed class SteamLegacyIntegrationTests(IntegrationFixture fx) : IClassF
     [Fact]
     public async Task GetUserSteamInventory_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetUserSteamInventory(fx.SteamId, fx.AppId, 2);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetUserSteamInventory(fx.SteamId, appTestData.AppId, 2);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value.Assets);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value.Assets);
+        }
     }
     
     [Fact]
@@ -67,10 +70,13 @@ public sealed class SteamLegacyIntegrationTests(IntegrationFixture fx) : IClassF
     [Fact]
     public async Task GetSingleApp_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetSingleApp(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetSingleApp(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.Equal(result.Value.AppId, fx.AppId);
+            AssertHelpers.AssertSuccess(result);
+            Assert.Equal(result.Value.AppId, appTestData.AppId);
+        }
     }
     
     [Fact]
@@ -85,28 +91,37 @@ public sealed class SteamLegacyIntegrationTests(IntegrationFixture fx) : IClassF
     [Fact]
     public async Task GetSingleItem_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetSingleItem(fx.AppId, fx.MarketHashName);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetSingleItem(appTestData.AppId, appTestData.MarketHashName);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value.MedianAvgPrices15Days);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value.MedianAvgPrices15Days);
+        }
     }
     
     [Fact]
     public async Task GetAllItems_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetAllItems(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetAllItems(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value.Data);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value.Data);
+        }
     }
     
     [Fact]
     public async Task GetAllItemsCompact_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetAllItemsCompact(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetAllItemsCompact(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value);
+        }
     }
     
     [Fact]
@@ -121,45 +136,60 @@ public sealed class SteamLegacyIntegrationTests(IntegrationFixture fx) : IClassF
     [Fact]
     public async Task GetMarketDescriptions_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetMarketDescriptions(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetMarketDescriptions(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value.Data);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value.Data);
+        }
     }
     
     [Fact]
     public async Task GetMarketHistograms_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetMarketHistograms(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetMarketHistograms(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value);
+        }
     }
     
     [Fact]
     public async Task GetMarketAssetInfos_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetMarketAssetInfos(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetMarketAssetInfos(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value.Results);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value.Results);
+        }
     }
     
     [Fact]
     public async Task GetImage_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetImage(fx.AppId, fx.MarketHashName);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetImage(appTestData.AppId, appTestData.MarketHashName);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value);
+        }
     }
     
     [Fact]
     public async Task GetImages_Succeeds()
     {
-        var result = await fx.Steam.Legacy.GetImages(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Legacy.GetImages(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value);
+            AssertHelpers.AssertSuccess(result);
+            Assert.NotEmpty(result.Value);
+        }
     }
 }

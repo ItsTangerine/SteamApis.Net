@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using SteamApis.Net.Clients;
 using SteamApis.Net.Constants;
+using SteamApis.Net.Tests.Models;
 
 namespace SteamApis.Net.Tests.Integration;
 
@@ -11,18 +12,15 @@ namespace SteamApis.Net.Tests.Integration;
 /// </summary>
 public sealed class IntegrationFixture : IDisposable
 {
-    public SteamApiClient   Steam  { get; }
-    public MarketPlaceApiClient  MarketPlace { get; }
+    public SteamApiClient Steam { get; }
+    public MarketPlaceApiClient MarketPlace { get; }
 
     // Fixture values loaded from secrets / env
-    public string ApiKey         { get; }
-    public string SteamId        { get; }
-    public string VanityUrl      { get; }
-    public string ItemId         { get; }
-    public string MarketHashName { get; }
-    public int    AppId          { get; }
-    public string GameCode       { get; }
-    public string Marketplace    { get; }
+    public string ApiKey { get; }
+    public string SteamId { get; }
+    public string VanityUrl { get; }
+    public AppTestData[] AppData { get; }
+    public string Marketplace { get; }
 
     private readonly HttpClient _steamHttp;
     private readonly HttpClient _marketHttp;
@@ -37,10 +35,7 @@ public sealed class IntegrationFixture : IDisposable
         ApiKey         = Required(config, "ApiKey");
         SteamId        = Required(config, "SteamId");
         VanityUrl      = Required(config, "VanityUrl");
-        ItemId         = Required(config, "ItemId");
-        MarketHashName = Required(config, "MarketHashName");
-        AppId          = int.Parse(Required(config, "AppId"));
-        GameCode       = Required(config, "GameCode");
+        AppData        = Required<AppTestData[]>(config, "AppData");
         Marketplace    = Required(config, "Marketplace");
 
         _steamHttp = BuildHttp(DefaultEndpoints.SteamBaseUrl,  ApiKey);
@@ -60,11 +55,21 @@ public sealed class IntegrationFixture : IDisposable
         httpClient.DefaultRequestHeaders.Add("x-api-key", apiKey);
         return httpClient;
     }
+    
+    private static T Required<T>(IConfiguration config, string key)
+    {
+        var obj = config.GetSection(key).Get<T>();
 
+        if (obj is null)
+            throw new InvalidOperationException(
+                $"Integration test secret '{key}' is missing or empty. ");
+
+        return obj;
+    }
+    
     private static string Required(IConfiguration cfg, string key) =>
         cfg[key] ?? throw new InvalidOperationException(
-            $"Integration test secret '{key}' is missing. " +
-            $"Run: dotnet user-secrets set \"{key}\" \"<value>\"");
+            $"Integration test secret '{key}' is missing. ");
 
     public void Dispose()
     {

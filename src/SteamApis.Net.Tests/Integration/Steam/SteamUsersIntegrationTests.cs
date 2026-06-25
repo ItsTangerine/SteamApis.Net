@@ -26,9 +26,12 @@ public sealed class SteamUsersIntegrationTests(IntegrationFixture fx) : IClassFi
     [Fact]
     public async Task GetInventoryAsync_Succeeds()
     {
-        var result = await fx.Steam.Users.GetInventoryAsync(fx.SteamId, fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Users.GetInventoryAsync(fx.SteamId, appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
+            AssertHelpers.AssertSuccess(result);
+        }
     }
 
     [Fact]
@@ -76,17 +79,23 @@ public sealed class SteamUsersIntegrationTests(IntegrationFixture fx) : IClassFi
     [Fact]
     public async Task GetGameAchievementsAsync_Succeeds()
     {
-        var result = await fx.Steam.Users.GetGameAchievementsAsync(fx.SteamId, fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Users.GetGameAchievementsAsync(fx.SteamId, appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
+            AssertHelpers.AssertSuccess(result);
+        }
     }
     
     [Fact]
     public async Task GetGameStatsAsync_Succeeds()
     {
-        var result = await fx.Steam.Users.GetGameStatsAsync(fx.SteamId, fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Users.GetGameStatsAsync(fx.SteamId, appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
+            AssertHelpers.AssertSuccess(result);
+        }
     }
     
     [Fact]

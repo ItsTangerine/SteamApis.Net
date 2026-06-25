@@ -71,10 +71,10 @@ public sealed class ItemDescription
     public int SealedType { get; init; }
 
     [JsonPropertyName("market_bucket_group_name")]
-    public required string MarketBucketGroupName { get; init; }
+    public string? MarketBucketGroupName { get; init; }
 
     [JsonPropertyName("market_bucket_group_id")]
-    public required string MarketBucketGroupId { get; init; }
+    public string? MarketBucketGroupId { get; init; }
  
     /// <summary>Builds the full CDN URL from the relative icon_url.</summary>
     public string GetIconFullUrl() => $"https://community.cloudflare.steamstatic.com/economy/image/{IconUrl}";

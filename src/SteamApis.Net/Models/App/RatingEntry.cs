@@ -2,7 +2,7 @@
 
 public sealed class RatingEntry
 {
-    public required string Rating { get; init; }
+    public string? Rating { get; init; }
     
-    public required string Descriptors { get; init; }
+    public string? Descriptors { get; init; }
 }

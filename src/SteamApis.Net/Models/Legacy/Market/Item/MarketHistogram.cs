@@ -18,10 +18,10 @@ public record MarketHistogram
     public OrderSummary BuyOrderSummary { get; init; } = default!;
 
     [JsonPropertyName("highest_buy_order")]
-    public decimal HighestBuyOrder { get; init; }
+    public decimal? HighestBuyOrder { get; init; }
 
     [JsonPropertyName("lowest_sell_order")]
-    public decimal LowestSellOrder { get; init; }
+    public decimal? LowestSellOrder { get; init; }
 
     [JsonPropertyName("buy_order_graph")]
     public List<List<JsonElement>> BuyOrderGraph { get; init; } = default!;

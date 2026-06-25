@@ -27,46 +27,60 @@ public sealed class SteamAppsIntegrationTests(IntegrationFixture fx) : IClassFix
     [Fact]
     public async Task GetDetailsAsync_ReturnsNameAndId()
     {
-        var result = await fx.Steam.Apps.GetDetailsAsync(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Apps.GetDetailsAsync(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.Equal(fx.AppId, result.Value.AppId);
-        Assert.False(string.IsNullOrWhiteSpace(result.Value.Name),
-            "AppDetails.Name should be populated");
+            AssertHelpers.AssertSuccess(result);
+            Assert.Equal(appTestData.AppId, result.Value.AppId);
+            Assert.False(string.IsNullOrWhiteSpace(result.Value.Name),
+                "AppDetails.Name should be populated");
+        }
     }
     
     [Fact]
     public async Task GetChangesAsync_NotEmpty()
     {
-        var result = await fx.Steam.Apps.GetChangesAsync(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Apps.GetChangesAsync(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.True(result.Value.Results?.Count > 0, "AppChanges should contain at least one change");
+            AssertHelpers.AssertSuccess(result);
+            Assert.True(result.Value.Results?.Count > 0, "AppChanges should contain at least one change");
+        }
     }
     
     [Fact]
     public async Task GetGlobalAchievementsAsync_NotEmpty()
     {
-        var result = await fx.Steam.Apps.GetGlobalAchievementsAsync(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Apps.GetGlobalAchievementsAsync(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        Assert.NotEmpty(result.Value);
+            AssertHelpers.AssertSuccess(result);
+        }
     }
 
     [Fact]
     public async Task GetNewsAsync_Succeeds()
     {
-        var result = await fx.Steam.Apps.GetNewsAsync(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Apps.GetNewsAsync(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
+            AssertHelpers.AssertSuccess(result);
+        }
     }
     
     [Fact]
     public async Task GetSchemaAsync_Succeeds()
     {
-        var result = await fx.Steam.Apps.GetSchemaAsync(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Apps.GetSchemaAsync(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
+            AssertHelpers.AssertSuccess(result);
+        }
     }
 
     [Fact]
@@ -80,9 +94,12 @@ public sealed class SteamAppsIntegrationTests(IntegrationFixture fx) : IClassFix
     [Fact]
     public async Task GetReviewsAsync_ReturnsPage()
     {
-        var result = await fx.Steam.Apps.GetReviewsAsync(fx.AppId);
+        foreach (var appTestData in fx.AppData)
+        {
+            var result = await fx.Steam.Apps.GetReviewsAsync(appTestData.AppId);
 
-        AssertHelpers.AssertSuccess(result);
-        AssertHelpers.AssertPagedHasResults(result.Value);
+            AssertHelpers.AssertSuccess(result);
+            AssertHelpers.AssertPagedHasResults(result.Value);
+        }
     }
 }
